@@ -1,0 +1,75 @@
+/* src/components/ui/Button/Button.css */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--loading {
+  cursor: progress;
+}
+
+.btn__spinner {
+  animation: btn-spin 0.7s linear infinite;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Primária: gradiente neon + glow ---- */
+.btn--primary {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6e 100%);
+  color: #04140c;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn--primary:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 55px -6px var(--primary-glow);
+}
+
+/* ---- Secundária: outline neon translúcido ---- */
+.btn--secondary {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--primary);
+  color: var(--primary);
+  backdrop-filter: blur(8px);
+}
+
+.btn--secondary:not(:disabled):hover {
+  background: var(--primary-soft);
+  transform: translateY(-2px);
+}

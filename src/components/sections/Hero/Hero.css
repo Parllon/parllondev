@@ -1,0 +1,147 @@
+/* src/components/sections/Hero/Hero.css */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 1.5rem 4rem;
+}
+
+.hero__container {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.75rem;
+}
+
+/* ---- Avatar com anel neon + pulse glow ---- */
+.hero__avatar {
+  position: relative;
+}
+
+.hero__avatar-ring {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 9999px;
+  padding: 3px;
+  background: linear-gradient(135deg, #00ff88, #00cc6e);
+  animation: hero-pulse 2.6s ease-in-out infinite alternate;
+}
+
+.hero__avatar-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+  background: var(--card);
+}
+
+@keyframes hero-pulse {
+  from {
+    box-shadow: 0 0 25px -4px var(--primary-glow);
+  }
+  to {
+    box-shadow: 0 0 50px 2px var(--primary-glow);
+  }
+}
+
+/* ---- Badge glassmorphism ---- */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted-strong);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.hero__badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--primary);
+  box-shadow: 0 0 10px 1px var(--primary-glow);
+}
+
+/* ---- Título ---- */
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(2.75rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.hero__title-highlight {
+  background: linear-gradient(120deg, #ffffff 0%, #00ff88 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Tagline ---- */
+.hero__tagline {
+  max-width: 38rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ---- Ações ---- */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ---- Estatísticas ---- */
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 30rem;
+  border-radius: var(--radius);
+  background: rgba(17, 17, 17, 0.55);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hero__stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-shadow: 0 0 14px var(--primary-glow);
+}
+
+.hero__stat-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  .hero__stats {
+    padding: 1.25rem 0.75rem;
+  }
+  .hero__stat-value {
+    font-size: 1.4rem;
+  }
+}

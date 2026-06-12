@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* Fonte Inter: carregada via <link> no index.html (mais rápido e evita
+   o aviso de ordenação de @import do Tailwind v4 / Lightning CSS). */
+
+/* ---------------------------------------------------
+   TOKENS DE DESIGN (Black & Neon Green)
+   Definidos como variáveis CSS cruas para permitir
+   override em runtime (ex.: temas, animações JS).
+--------------------------------------------------- */
+:root {
+  --background: #0a0a0a;
+  --surface: #0d0d0d;
+  --card: #111111;
+  --foreground: #ffffff;
+  --muted: #a0a0a0;
+  --muted-strong: #c7c7c7;
+  --primary: #00ff88;
+  --primary-soft: rgba(0, 255, 136, 0.14);
+  --primary-glow: rgba(0, 255, 136, 0.45);
+  --border: rgba(255, 255, 255, 0.08);
+
+  --radius: 1rem;
+  --shadow-glow: 0 0 40px -8px var(--primary-glow);
+}
+
+/* ---------------------------------------------------
+   MAPEAMENTO PARA O TAILWIND v4
+   @theme inline -> gera utilitários (bg-*, text-*, etc.)
+   apontando para as variáveis acima.
+--------------------------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
+
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --radius-xl: var(--radius);
+}
+
+/* ---------------------------------------------------
+   BASE
+--------------------------------------------------- */
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    background-image: radial-gradient(
+        circle at 50% 0%,
+        rgba(0, 255, 136, 0.08) 0%,
+        transparent 45%
+      ),
+      linear-gradient(180deg, #0a0a0a 0%, #131313 55%, #0a0a0a 100%);
+    background-attachment: fixed;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: #000;
+  }
+}
+
+/* Acessibilidade: respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
