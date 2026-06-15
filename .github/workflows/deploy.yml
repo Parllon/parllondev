@@ -34,6 +34,9 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          timeout: 60000
           local-dir: ./dist/
           server-dir: /public_html/
           # PROTEÇÃO: pastas que o deploy NÃO pode tocar nem apagar.
