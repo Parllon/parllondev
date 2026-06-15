@@ -52,9 +52,9 @@ export const heroData = {
 };
 
 export const heroStats = [
-  { id: "projetos", value: "50+", label: "Projetos" },
-  { id: "anos", value: "5+", label: "Anos de experiência" },
-  { id: "satisfacao", value: "100%", label: "Satisfação" },
+  { id: "projetos", value: "3", label: "Projetos no ar" },
+  { id: "stack", value: "Full Stack", label: "Front-end & Back-end" },
+  { id: "formacao", value: "ADS", label: "Graduação em andamento" },
 ];
 
 /* ============================ ABOUT =========================== */
@@ -63,7 +63,7 @@ export const aboutData = {
   title: "Mais do que código,",
   highlight: "soluções",
   paragraphs: [
-    "Sou um desenvolvedor full stack apaixonado por criar soluções digitais que fazem a diferença. Com mais de 5 anos de experiência, transformo ideias complexas em aplicações web elegantes e funcionais.",
+    "Sou desenvolvedor full stack apaixonado por criar soluções digitais que fazem a diferença. Em formação em Análise e Desenvolvimento de Sistemas e atuando no desenvolvimento de aplicações reais, transformo ideias em aplicações web elegantes e funcionais.",
     "A minha abordagem combina expertise técnica com visão estratégica, sempre focada na experiência do utilizador e na escalabilidade. Trabalho com as tecnologias mais modernas do mercado para entregar resultados excepcionais.",
   ],
   stack: ["React", "Node.js", "Python", "TypeScript", "AWS", "Docker"],
@@ -128,7 +128,7 @@ export const portfolioData = {
       githubUrl: null,
     },
     {
-      id: "landing-page",
+      id: "landing-propria",
       title: "Landing Page Própria",
       description:
         "Landing page completa para apresentar a minha experiência e portfólio.",
@@ -197,14 +197,9 @@ export const resumeData = {
     },
   ],
 
+  // Certificações reais entram aqui (a coluna só aparece quando há itens).
   certificationsTitle: "Certificações",
-  certifications: [
-    "AWS Certified Solutions Architect",
-    "Google Cloud Professional Developer",
-    "React Advanced Certification",
-    "Node.js Professional Certification",
-    "Scrum Master Certified",
-  ],
+  certifications: [],
 };
 
 /* ============================ CONTACT ========================= */

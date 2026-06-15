@@ -87,7 +87,11 @@ export default function Resume() {
         </div>
 
         {/* ---- Formação + Certificações ---- */}
-        <div className="resume__bottom">
+        <div
+          className={`resume__bottom${
+            certifications.length === 0 ? " resume__bottom--single" : ""
+          }`}
+        >
           <div className="resume__col">
             <Reveal>
               <h3 className="resume__subtitle">
@@ -116,31 +120,33 @@ export default function Resume() {
             </div>
           </div>
 
-          <div className="resume__col">
-            <Reveal>
-              <h3 className="resume__subtitle">
-                <span className="resume__subtitle-icon">
-                  <Award size={20} strokeWidth={2} aria-hidden="true" />
-                </span>
-                {certificationsTitle}
-              </h3>
-            </Reveal>
+          {certifications.length > 0 && (
+            <div className="resume__col">
+              <Reveal>
+                <h3 className="resume__subtitle">
+                  <span className="resume__subtitle-icon">
+                    <Award size={20} strokeWidth={2} aria-hidden="true" />
+                  </span>
+                  {certificationsTitle}
+                </h3>
+              </Reveal>
 
-            <div className="resume__certs">
-              {certifications.map((cert, index) => (
-                <Reveal key={cert} delay={0.08 * index}>
-                  <div className="cert-item">
-                    <CheckCircle2
-                      size={18}
-                      className="cert-item__icon"
-                      aria-hidden="true"
-                    />
-                    <span>{cert}</span>
-                  </div>
-                </Reveal>
-              ))}
+              <div className="resume__certs">
+                {certifications.map((cert, index) => (
+                  <Reveal key={cert} delay={0.08 * index}>
+                    <div className="cert-item">
+                      <CheckCircle2
+                        size={18}
+                        className="cert-item__icon"
+                        aria-hidden="true"
+                      />
+                      <span>{cert}</span>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

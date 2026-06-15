@@ -48,7 +48,7 @@ export const seoConfig = {
     name: "Parllon Mendonça",
     jobTitle: "Desenvolvedor Full Stack",
     description:
-      "Desenvolvedor Full Stack com mais de 5 anos de experiência em React, Node.js e Python, criando aplicações web rápidas, escaláveis e bem desenhadas.",
+      "Desenvolvedor Full Stack que cria aplicações web rápidas, escaláveis e bem desenhadas com React e Node.js.",
     // Foto real (mesma do Hero). Troque por um URL no seu domínio se preferir.
     image:
       "https://horizons-cdn.hostinger.com/2a7fb558-f565-4434-92b4-342aa66596bd/b90d82b63eb90c4a5ed017369e747713.jpg",

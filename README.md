@@ -11,7 +11,10 @@ glassmorphism subtil e tipografia Inter.
   dentro de `src/styles/theme.css` (sem `tailwind.config.js`, sem `postcss.config.js`).
 - **lucide-react** — ícones.
 - **motion** (Framer Motion) — animações centralizadas no componente `Reveal`.
-- **react-helmet** — SEO centralizado no componente `Seo` (dados em `src/data/seo.js`).
+- **SEO estático** — injetado no `index.html` em tempo de build por um plugin do
+  Vite (`vite.config.js`), a partir de `seo.config.js`. Como é estático, crawlers e
+  robôs de preview leem tudo sem executar JS. O mesmo plugin gera `sitemap.xml` e
+  `robots.txt` no build.
 - **Web3Forms** — envio do formulário de contato (sem backend).
 
 ## Como rodar
@@ -36,23 +39,24 @@ npm run lint      # ESLint
 ## Arquitetura
 
 ```
+seo.config.js               # fonte única de SEO (lida pelo plugin do Vite)
+vite.config.js              # plugins (react, tailwind) + injeção estática de SEO
 src/
 ├─ main.jsx                 # entrada (monta App + importa theme.css)
-├─ App.jsx                  # shell: Seo + ToastProvider + secções
+├─ App.jsx                  # shell: ToastProvider + secções
 ├─ styles/
 │  └─ theme.css             # tokens de cor + injeção do Tailwind v4
 ├─ data/
-│  ├─ content.js            # TODO o conteúdo (textos, links, ícones)
-│  └─ seo.js                # metadados de SEO
-├─ assets/
-│  └─ imglandingPage.png    # imagem do projeto "Landing Page"
+│  └─ content.js            # TODO o conteúdo (textos, links, ícones)
+├─ assets/                  # imagens dos projetos (imglandingPage, imgnail, navalha)
 └─ components/
-   ├─ ui/                   # primitivos: Button, Reveal, SectionHeader, Toast, Seo, icons
+   ├─ ui/                   # primitivos: Button, Reveal, SectionHeader, Toast, FloatingButtons, icons
    └─ sections/             # blocos: Hero, About, Portfolio, Resume, Contact, Navigation, Footer
 ```
 
 Cada componente vive na sua própria pasta com o `.jsx` e o `.css` ao lado.
-Nenhum texto está "hardcoded" — tudo passa por `src/data/`.
+Nenhum texto está "hardcoded" — o conteúdo passa por `src/data/content.js` e os
+metadados de SEO por `seo.config.js`.
 
 ## Notas
 
@@ -61,4 +65,4 @@ Nenhum texto está "hardcoded" — tudo passa por `src/data/`.
 - **Chave do Web3Forms:** já está em `src/data/content.js` (`contactData.web3formsKey`).
 - **Imagem de partilha (OG):** para ativar a pré-visualização em redes sociais,
   coloque um `og-image.jpg` (1200×630) dentro de `public/`. A referência já existe
-  em `src/data/seo.js`.
+  em `seo.config.js`.
