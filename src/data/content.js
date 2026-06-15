@@ -15,7 +15,7 @@ import {
   Github,
 } from "lucide-react";
 import WhatsappIcon from "@/components/ui/icons/WhatsappIcon";
-import imgLandingPage from "@/assets/imglandingPage.png";
+import studioVitoria from "@/assets/studiovitoria.png";
 import imgnail from "@/assets/imgnail.png";
 import navalha from "@/assets/navalha.png";
 
@@ -128,15 +128,15 @@ export const portfolioData = {
       githubUrl: null,
     },
     {
-      id: "landing-propria",
-      title: "Landing Page Própria",
+      id: "studio-vitoria",
+      title: "Landing Page — Studio Vitória",
       description:
-        "Landing page completa para apresentar a minha experiência e portfólio.",
-      image: imgLandingPage,
-      technologies: ["React", "Node.js"],
-      category: "Front-end",
-      liveUrl: "http://parllondev.net",
-      githubUrl: "https://github.com/Parllon/parllondev.git",
+        "Landing page para o Studio Vitória Gonçalves — estúdio de brow design e visagismo de alto padrão. Layout elegante, mobile-first, com galeria e depoimentos, focado em conversão para agendamento.",
+      image: studioVitoria,
+      technologies: ["React (Vite)", "Tailwind CSS", "Framer Motion", "Mobile-First"],
+      category: "Front-End",
+      liveUrl: "https://studiovitoria.parllondev.net/",
+      githubUrl: null,
     },
   ],
   more: {
